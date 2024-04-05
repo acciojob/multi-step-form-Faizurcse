@@ -4,7 +4,7 @@ function Cars({nextStep,prevStep} ){
     
     return(
         <form onSubmit={nextStep} >
-            <div  style={{height:'250px'}}>
+            <div  id='step2' style={{height:'250px'}}>
                 <h3>Car Deatils</h3>
                 <label htmlFor="model">Car model :</label><br /><br />
                 <input type="text"  id="model" required/><br /><br />

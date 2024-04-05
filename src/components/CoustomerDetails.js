@@ -1,7 +1,7 @@
 import React from 'react'
 function CoustomerDetails({nextStep}){
     return(
-        <div style={{height:'250px'}}>
+        <div id='step1' style={{height:'250px'}}>
             <form onSubmit={nextStep}>
             <h3>Customer Details</h3>
             <label htmlFor='first_name'>First Name :</label><br /><br />

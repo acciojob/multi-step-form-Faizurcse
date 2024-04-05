@@ -19,7 +19,7 @@ function Payment({ prevStep, submitForm }) {
   };
 
   return (
-    <div style={{ height: "400px" }}>
+    <div id='step3' style={{ height: "400px" }}>
       <form action="" onSubmit={submitForm}>
         <h3>Payment Details</h3>
         <label htmlFor="card_info">Credit Card Number :</label>
