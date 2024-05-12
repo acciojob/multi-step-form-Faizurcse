@@ -1,47 +1,38 @@
+import React, { useState } from 'react';
+import Step from './Step'; // Make sure to adjust the import path
+import './App.css'
 
-import React, { useState } from "react";
-import CoustomerDetails from "./CoustomerDetails";
-import Cars from "./Cars";
-import Payment from "./Payment";
 
-const App = () => {
-  const [step, setStep] = useState(1);
+const MultiStepForm = () => {
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const nextStep = (e) => {
-    e.preventDefault()
-    setStep(step + 1);
+  const nextStep = () => {
+    // rftgb35htg34
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    }
   };
 
   const prevStep = () => {
-    setStep(step - 1);
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
   };
 
- function Submitform(e){
-  e.preventDefault()
-  console.log(e.target.value)
- }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('Form submitted successfully!');
+    // You can add AJAX or other logic for form submission here
+  };
 
   return (
-    <div style={{display:'flex',justifyContent:'center'}}>
-      <div
-        style={{
-          backgroundColor: "skyblue",
-          width: "25%",
-          height: "70%",
-          borderRadius: "5px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        {step === 1 && <CoustomerDetails nextStep={nextStep} />}
-        {step === 2 && <Cars nextStep={nextStep} prevStep={prevStep} />}
-        {step === 3 && <Payment prevStep={prevStep} Submitform={Submitform} />}
-
-        
-      </div>
-    </div>
+    // fvt4gt4wg4dedcdcw
+    <form id="multiStepForm" onSubmit={handleSubmit}>
+      <Step stepNumber={1} currentStep={currentStep} onNext={nextStep} onPrev={prevStep} />
+      <Step stepNumber={2} currentStep={currentStep} onNext={nextStep} onPrev={prevStep} />
+      <Step stepNumber={3} currentStep={currentStep} onNext={nextStep} onPrev={prevStep} />
+    </form>
   );
 };
 
-export default App;
+export default MultiStepForm;
